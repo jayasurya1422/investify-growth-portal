@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import Navigation from "../components/Navigation";
 import Hero from "../components/Hero";
 import Dashboard from "../components/Dashboard";
+import WhyInvest from "../components/WhyInvest";
+import Faq from "../components/Faq";
+import Footer from "../components/Footer";
 
 const Index = () => {
   useEffect(() => {
@@ -25,6 +28,9 @@ const Index = () => {
       <Navigation />
       <Hero />
       <Dashboard />
+      <WhyInvest />
+      <Faq />
+      <Footer />
     </div>
   );
 };
