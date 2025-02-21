@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { 
   LineChart, 
   Coins, 
-  GoldIcon, 
+  CircleDollarSign, 
   Warehouse, 
   Users,
   ChevronLeft,
@@ -18,7 +18,7 @@ const Sidebar = () => {
     { icon: LineChart, label: "Stocks", href: "#stocks" },
     { icon: Warehouse, label: "Fixed Deposits", href: "#fixed-deposits" },
     { icon: Coins, label: "Mutual Funds", href: "#mutual-funds" },
-    { icon: GoldIcon, label: "Gold ETFs", href: "#gold-etfs" },
+    { icon: CircleDollarSign, label: "Gold ETFs", href: "#gold-etfs" },
     { icon: Users, label: "Community", href: "#community" },
   ];
 
