@@ -10,16 +10,18 @@ import {
   ChevronRight 
 } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const location = useLocation();
 
   const menuItems = [
-    { icon: LineChart, label: "Stocks", href: "#stocks" },
-    { icon: Warehouse, label: "Fixed Deposits", href: "#fixed-deposits" },
-    { icon: Coins, label: "Mutual Funds", href: "#mutual-funds" },
-    { icon: CircleDollarSign, label: "Gold ETFs", href: "#gold-etfs" },
-    { icon: Users, label: "Community", href: "#community" },
+    { icon: LineChart, label: "Stocks", href: "/stocks" },
+    { icon: Warehouse, label: "Fixed Deposits", href: "/fixed" },
+    { icon: Coins, label: "Mutual Funds", href: "/mutual-funds" },
+    { icon: CircleDollarSign, label: "Gold ETFs", href: "/gold-etfs" },
+    { icon: Users, label: "Community", href: "/community" },
   ];
 
   return (
@@ -42,15 +44,21 @@ const Sidebar = () => {
       
       <div className={`w-64 p-4 space-y-4`}>
         {menuItems.map((item) => (
-          <motion.a
-            key={item.label}
-            href={item.href}
-            whileHover={{ x: 5 }}
-            className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
-          >
-            <item.icon className="w-5 h-5 text-primary" />
-            <span className="font-medium">{item.label}</span>
-          </motion.a>
+          <motion.div key={item.label} whileHover={{ x: 5 }}>
+            <Link
+              to={item.href}
+              className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+                location.pathname === item.href
+                  ? "bg-primary/10 text-primary"
+                  : "text-gray-700 hover:bg-gray-50"
+              }`}
+            >
+              <item.icon className={`w-5 h-5 ${
+                location.pathname === item.href ? "text-primary" : "text-gray-500"
+              }`} />
+              <span className="font-medium">{item.label}</span>
+            </Link>
+          </motion.div>
         ))}
       </div>
     </motion.div>
