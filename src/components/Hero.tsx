@@ -6,7 +6,23 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white"></div>
+        {/* Aurora background effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-teal-400/20 animate-gradient" />
+        <div className="absolute inset-0 backdrop-blur-[100px]" />
+        {/* Animated aurora lines */}
+        <div className="absolute inset-0 opacity-30">
+          {[...Array(5)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute inset-0 transform animate-aurora"
+              style={{
+                background: `linear-gradient(${i * 45}deg, transparent, rgba(128, 0, 255, 0.1), transparent)`,
+                animation: `aurora ${10 + i * 2}s infinite`,
+                animationDelay: `${i * 0.5}s`,
+              }}
+            />
+          ))}
+        </div>
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

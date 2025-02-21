@@ -1,6 +1,7 @@
 
 import { useEffect } from "react";
 import Navigation from "../components/Navigation";
+import Sidebar from "../components/Sidebar";
 import Hero from "../components/Hero";
 import Dashboard from "../components/Dashboard";
 import WhyInvest from "../components/WhyInvest";
@@ -26,11 +27,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <Hero />
-      <Dashboard />
-      <WhyInvest />
-      <Faq />
-      <Footer />
+      <Sidebar />
+      <div className="pl-16 md:pl-64"> {/* Add padding to accommodate sidebar */}
+        <Hero />
+        <Dashboard />
+        <WhyInvest />
+        <Faq />
+        <Footer />
+      </div>
     </div>
   );
 };
