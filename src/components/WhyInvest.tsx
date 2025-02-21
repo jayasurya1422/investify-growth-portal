@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { DollarSign, Robot, Shield, ChartLine, PercentIcon } from "lucide-react";
+import { DollarSign, Bot, Shield, ChartLine, PercentIcon } from "lucide-react";
 
 const features = [
   {
@@ -14,7 +14,7 @@ const features = [
     description: "Fewer middlemen, reduced fees",
   },
   {
-    icon: Robot,
+    icon: Bot,
     title: "Automation & AI",
     description: "Smart AI-powered investment optimization",
   },
