@@ -10,11 +10,12 @@ import {
   ChevronRight 
 } from "lucide-react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const menuItems = [
     { icon: LineChart, label: "Stocks", href: "/stocks" },
@@ -23,6 +24,10 @@ const Sidebar = () => {
     { icon: CircleDollarSign, label: "Gold ETFs", href: "/gold-etfs" },
     { icon: Users, label: "Community", href: "/community" },
   ];
+
+  const handleNavigation = (href: string) => {
+    navigate(href);
+  };
 
   return (
     <motion.div
@@ -45,9 +50,9 @@ const Sidebar = () => {
       <div className={`w-64 p-4 space-y-4`}>
         {menuItems.map((item) => (
           <motion.div key={item.label} whileHover={{ x: 5 }}>
-            <Link
-              to={item.href}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+            <button
+              onClick={() => handleNavigation(item.href)}
+              className={`flex w-full items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                 location.pathname === item.href
                   ? "bg-primary/10 text-primary"
                   : "text-gray-700 hover:bg-gray-50"
@@ -57,7 +62,7 @@ const Sidebar = () => {
                 location.pathname === item.href ? "text-primary" : "text-gray-500"
               }`} />
               <span className="font-medium">{item.label}</span>
-            </Link>
+            </button>
           </motion.div>
         ))}
       </div>
